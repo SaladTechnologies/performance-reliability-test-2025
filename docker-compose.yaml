@@ -1,0 +1,30 @@
+
+services:
+  performance-test:
+    
+    #command: sleep infinity
+
+    image: docker.io/saladtechnologies/misc:001-performance-test
+    container_name: wsl
+    restart: "no"
+    environment:
+      - AWS_ENDPOINT_URL=${AWS_ENDPOINT_URL}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+      - BUCKET=${BUCKET}
+      - FOLDER=${FOLDER}
+      - METRIC_INTERVAL=${METRIC_INTERVAL} 
+      - REPORT_NUMBER=${REPORT_NUMBER}     
+      - WALLET=${WALLET}
+      - CUDA_VISIBLE_DEVICES=0
+      - SALAD_MACHINE_ID=${SALAD_MACHINE_ID}
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    stdin_open: true
+    tty: true
