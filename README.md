@@ -7,11 +7,11 @@ For the final test results, see the [Service Performance and Reliability Overvie
 
 ### Image
 
-The [Image](https://github.com/SaladTechnologies/performance-reliability-test-2025/blob/main/image/Dockerfile) comes with lolMiner pre-integrated. On startup, it launches two threads:
+The [image](https://github.com/SaladTechnologies/performance-reliability-test-2025/blob/main/image/Dockerfile) comes with lolMiner pre-integrated. On startup, it launches two threads:
 
 - [Scheduler Thread](https://github.com/SaladTechnologies/performance-reliability-test-2025/blob/main/image/main.py#L115) - Runs a loop that creates a new [Metric_Task thread](https://github.com/SaladTechnologies/performance-reliability-test-2025/blob/main/image/main.py#L70) every 1 minute (METRIC_INTERVAL) to collect metrics. These metrics (stored as a metric file) are added to a local queue (upload_queue) every 5 minutes (REPORT_NUMBER).
 
-- [Uploader THread](https://github.com/SaladTechnologies/performance-reliability-test-2025/blob/main/image/main.py#L128) - Reads metric files from the local queue and uploads the metric file to the cloud (S3-Compatible). 
+- [Uploader THread](https://github.com/SaladTechnologies/performance-reliability-test-2025/blob/main/image/main.py#L128) - Reads from the local queue and uploads the metric files to the cloud (S3-Compatible). 
 
 It then runs lolMiner continuously, redirecting its output to a local file (LOCAL_LOG_FILE).
 
