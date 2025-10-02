@@ -59,4 +59,4 @@ You can run [salad_monitor.py](https://github.com/SaladTechnologies/performance-
 
 ### Data Analytics and Virtualization
 
-Run analysis_draw.py to analyze and virualize the metric files in the ./data folder. See [the output files](https://github.com/SaladTechnologies/performance-reliability-test-2025/tree/main/output) for reference.
+Run [analysis_draw.py](https://github.com/SaladTechnologies/performance-reliability-test-2025/blob/main/analysis_draw.py) to analyze and virualize the metric files in the ./data folder. See [the output files](https://github.com/SaladTechnologies/performance-reliability-test-2025/tree/main/output) for reference.
